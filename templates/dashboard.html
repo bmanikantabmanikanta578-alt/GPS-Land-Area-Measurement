@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="mb-4">
+Dashboard
+</h1>
+
+<div class="row">
+
+<div class="col-md-4">
+
+<div class="card shadow p-4">
+
+<h3>Total Measurements</h3>
+
+<h1>{{ measurements|length }}</h1>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card shadow p-4">
+
+<h3>GPS Measurement</h3>
+
+<a href="/map" class="btn btn-success mt-3">
+Open Map Tool
+</a>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card shadow p-4">
+
+<h3>Measurement History</h3>
+
+<a href="/history" class="btn btn-primary mt-3">
+View History
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

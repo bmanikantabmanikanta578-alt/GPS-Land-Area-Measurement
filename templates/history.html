@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="mb-4">
+Measurement History
+</h2>
+
+<table class="table table-bordered table-striped">
+
+<tr>
+
+<th>ID</th>
+<th>Name</th>
+<th>Area</th>
+<th>Perimeter</th>
+<th>Date</th>
+
+</tr>
+
+{% for measurement in measurements %}
+
+<tr>
+
+<td>{{ measurement.id }}</td>
+
+<td>{{ measurement.measurement_name }}</td>
+
+<td>{{ measurement.area }}</td>
+
+<td>{{ measurement.perimeter }}</td>
+
+<td>{{ measurement.created_at }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

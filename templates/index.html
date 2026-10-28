@@ -1,0 +1,234 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+
+<div class="hero-banner text-white">
+
+<div class="overlay">
+
+<div class="container text-center">
+
+<h1 class="display-3 fw-bold mb-4">
+🌍 GPS Land Survey System
+</h1>
+
+<p class="lead mb-4">
+
+Professional GPS Area Measurement,
+Field Survey, Acreage Calculator,
+Walking Survey & Land Mapping System
+
+</p>
+
+<a href="/register" class="btn btn-success btn-lg px-5">
+
+🚀 Start Survey
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- FEATURES -->
+
+<div class="container mt-5">
+
+<h2 class="text-center fw-bold mb-5">
+
+✨ Powerful Survey Features
+
+</h2>
+
+<div class="row">
+
+<div class="col-md-4 mb-4">
+
+<div class="card feature-card shadow-lg">
+
+<img
+src="{{ url_for('static', filename='images/survey1.jpg') }}"
+class="card-img-top"
+height="250"
+>
+
+<div class="card-body">
+
+<h4 class="fw-bold">
+📐 Area Measurement
+</h4>
+
+<p>
+
+Measure land area,
+fields, gardens,
+plots and farms accurately.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-4 mb-4">
+
+<div class="card feature-card shadow-lg">
+
+<img
+src="{{ url_for('static', filename='images/survey2.jpg') }}"
+class="card-img-top"
+height="250"
+>
+
+<div class="card-body">
+
+<h4 class="fw-bold">
+🛰️ Satellite Mapping
+</h4>
+
+<p>
+
+High quality satellite maps
+with village labels,
+roads and landmarks.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-4 mb-4">
+
+<div class="card feature-card shadow-lg">
+
+<img
+src="{{ url_for('static', filename='images/farm.jpg') }}"
+class="card-img-top"
+height="250"
+>
+
+<div class="card-body">
+
+<h4 class="fw-bold">
+🚶 Walking Survey
+</h4>
+
+<p>
+
+Walk around the field
+to track real GPS coordinates
+and land boundaries.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- BIG BANNER -->
+
+<div class="container-fluid mt-5">
+
+<div class="survey-banner">
+
+<div class="survey-overlay">
+
+<div class="container text-center text-white">
+
+<h1 class="fw-bold display-4">
+
+Professional Land Mapping
+
+</h1>
+
+<p class="lead mt-3">
+
+Survey farms, homes,
+construction sites,
+parks and agricultural lands.
+
+</p>
+
+<a href="/login" class="btn btn-light btn-lg mt-3">
+
+🔐 Login Now
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- GALLERY -->
+
+<div class="container mt-5 mb-5">
+
+<h2 class="text-center fw-bold mb-5">
+
+📸 Survey Gallery
+
+</h2>
+
+<div class="row">
+
+<div class="col-md-4 mb-4">
+
+<img
+src="{{ url_for('static', filename='images/gps.jpg') }}"
+class="gallery-img"
+>
+
+</div>
+
+<div class="col-md-4 mb-4">
+
+<img
+src="{{ url_for('static', filename='images/survey1.jpg') }}"
+class="gallery-img"
+>
+
+</div>
+
+<div class="col-md-4 mb-4">
+
+<img
+src="{{ url_for('static', filename='images/survey2.jpg') }}"
+class="gallery-img"
+>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

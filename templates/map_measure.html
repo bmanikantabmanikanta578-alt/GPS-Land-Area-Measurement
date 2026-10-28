@@ -1,0 +1,434 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+<h2 class="mb-4 text-center fw-bold">
+
+🌍 Professional GPS Land Survey System
+
+</h2>
+
+
+
+<!-- MAP CARD -->
+
+<div class="card shadow-lg border-0 mb-4">
+
+<div class="card-body p-2">
+
+<div id="map"></div>
+
+</div>
+
+</div>
+
+
+
+<!-- SURVEY FORM -->
+
+<form
+method="POST"
+action="/save_measurement"
+class="survey-form"
+enctype="multipart/form-data"
+>
+
+<div class="row">
+
+
+<!-- SURVEY NAME -->
+
+<div class="col-md-4">
+
+<label class="form-label fw-bold">
+
+📍 Survey Name
+
+</label>
+
+<input
+type="text"
+name="measurement_name"
+id="measurement_name"
+class="form-control mb-3"
+placeholder="Enter Survey Name"
+required
+>
+
+</div>
+
+
+
+<!-- OWNER NAME -->
+
+<div class="col-md-4">
+
+<label class="form-label fw-bold">
+
+👤 Owner Name
+
+</label>
+
+<input
+type="text"
+id="owner_name"
+name="owner_name"
+class="form-control mb-3"
+placeholder="Enter Owner Name"
+>
+
+</div>
+
+
+
+<!-- GOVERNMENT WEBSITE -->
+
+<div class="col-md-4">
+
+<label class="form-label fw-bold">
+
+🌐 Karnataka Land Records
+
+</label>
+
+<a
+href="https://landrecords.karnataka.gov.in/"
+target="_blank"
+class="btn btn-dark w-100 mb-3"
+>
+
+🔗 Open Bhoomi RTC Portal
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- AREA DETAILS -->
+
+<div class="row">
+
+
+<!-- AREA -->
+
+<div class="col-md-3">
+
+<label class="form-label fw-bold">
+
+📐 Area (Sq.m)
+
+</label>
+
+<input
+type="text"
+id="area"
+name="area"
+class="form-control mb-3"
+placeholder="Area"
+readonly
+>
+
+</div>
+
+
+
+<!-- SQ FEET -->
+
+<div class="col-md-3">
+
+<label class="form-label fw-bold">
+
+🏠 Square Feet
+
+</label>
+
+<input
+type="text"
+id="sqfeet"
+name="sqfeet"
+class="form-control mb-3"
+placeholder="Square Feet"
+readonly
+>
+
+</div>
+
+
+
+<!-- ACRES -->
+
+<div class="col-md-3">
+
+<label class="form-label fw-bold">
+
+🌾 Acres
+
+</label>
+
+<input
+type="text"
+id="acres"
+name="acres"
+class="form-control mb-3"
+placeholder="Acres"
+readonly
+>
+
+</div>
+
+
+
+<!-- PERIMETER -->
+
+<div class="col-md-3">
+
+<label class="form-label fw-bold">
+
+📏 Perimeter
+
+</label>
+
+<input
+type="text"
+id="perimeter"
+name="perimeter"
+class="form-control mb-3"
+placeholder="Perimeter"
+readonly
+>
+
+</div>
+
+</div>
+
+
+
+<!-- GPS STATUS -->
+
+<div class="row">
+
+
+<div class="col-md-6">
+
+<label class="form-label fw-bold">
+
+📡 GPS Status
+
+</label>
+
+<input
+type="text"
+id="gps_status"
+class="form-control mb-3"
+placeholder="GPS Status"
+readonly
+>
+
+</div>
+
+
+
+<div class="col-md-6">
+
+<label class="form-label fw-bold">
+
+🚶 Walking Survey Mode
+
+</label>
+
+<input
+type="text"
+id="walking_status"
+class="form-control mb-3"
+placeholder="Walking Mode Status"
+readonly
+>
+
+</div>
+
+</div>
+
+
+
+<!-- COORDINATES -->
+
+<label class="form-label fw-bold">
+
+🛰️ Survey Coordinates
+
+</label>
+
+<textarea
+id="coordinates"
+name="coordinates"
+class="form-control mb-3"
+rows="4"
+placeholder="Coordinates"
+readonly
+></textarea>
+
+
+
+<!-- NOTES -->
+
+<label class="form-label fw-bold">
+
+📝 Survey Notes
+
+</label>
+
+<textarea
+id="survey_note"
+name="survey_note"
+class="form-control mb-3"
+rows="4"
+placeholder="Write survey notes..."
+></textarea>
+
+
+
+<!-- CAMERA -->
+
+<label class="form-label fw-bold">
+
+📷 Upload Land Image
+
+</label>
+
+<input
+type="file"
+name="land_image"
+class="form-control mb-4"
+accept="image/*"
+capture="environment"
+>
+
+
+
+<!-- WALKING BUTTONS -->
+
+<div class="row mb-4">
+
+<div class="col-md-6">
+
+<button
+type="button"
+onclick="startWalkingSurvey()"
+class="btn btn-primary btn-lg w-100"
+>
+
+🚶 Start Walking Survey
+
+</button>
+
+</div>
+
+
+
+<div class="col-md-6">
+
+<button
+type="button"
+onclick="stopWalkingSurvey()"
+class="btn btn-danger btn-lg w-100"
+>
+
+🛑 Stop Walking Survey
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- SAVE BUTTON -->
+
+<button
+type="submit"
+class="btn btn-success btn-lg w-100"
+>
+
+💾 Save Professional Survey
+
+</button>
+
+</form>
+
+</div>
+
+
+
+<!-- LEAFLET CSS -->
+
+<link
+rel="stylesheet"
+href="https://unpkg.com/leaflet/dist/leaflet.css"
+/>
+
+
+
+<!-- LEAFLET DRAW CSS -->
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css"
+/>
+
+
+
+<!-- GEOCODER CSS -->
+
+<link
+rel="stylesheet"
+href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"
+/>
+
+
+
+<!-- FONT AWESOME -->
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
+
+
+<!-- LEAFLET JS -->
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+
+
+<!-- LEAFLET DRAW JS -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+
+
+
+<!-- GEOCODER JS -->
+
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+
+
+<!-- GEOMETRY UTIL -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geometryutil/0.10.2/leaflet.geometryutil.min.js"></script>
+
+
+
+<!-- CUSTOM MAP JS -->
+
+<script src="{{ url_for('static', filename='js/map.js') }}"></script>
+
+
+
+{% endblock %}

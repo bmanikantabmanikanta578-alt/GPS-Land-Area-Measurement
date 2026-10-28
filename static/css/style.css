@@ -1,0 +1,689 @@
+/* =========================================
+   GLOBAL DESIGN
+========================================= */
+
+body {
+
+    background: #f4f7fb;
+
+    font-family: 'Segoe UI', Arial, sans-serif;
+
+    margin: 0;
+
+    padding: 0;
+
+    overflow-x: hidden;
+
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+
+    padding: 15px 25px;
+
+    background: linear-gradient(90deg,#0d6efd,#198754);
+
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+
+}
+
+.navbar-brand {
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    color: white !important;
+
+}
+
+.nav-link {
+
+    color: white !important;
+
+    font-weight: 500;
+
+    margin-left: 10px;
+
+}
+
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+.hero-banner {
+
+    background-image: url("../images/banner.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    height: 90vh;
+
+    border-radius: 0px 0px 30px 30px;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+.overlay {
+
+    background: rgba(0,0,0,0.65);
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    color: white;
+
+    padding: 20px;
+
+}
+
+.overlay h1 {
+
+    font-size: 65px;
+
+    font-weight: bold;
+
+    margin-bottom: 20px;
+
+}
+
+.overlay p {
+
+    font-size: 22px;
+
+    max-width: 800px;
+
+    margin: auto;
+
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.btn {
+
+    border-radius: 15px;
+
+    padding: 12px 25px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+
+}
+
+.btn:hover {
+
+    transform: scale(1.05);
+
+}
+
+.btn-success {
+
+    background: linear-gradient(45deg,#28a745,#20c997);
+
+    border: none;
+
+}
+
+.btn-primary {
+
+    background: linear-gradient(45deg,#0d6efd,#00b4ff);
+
+    border: none;
+
+}
+
+
+/* =========================================
+   CARDS
+========================================= */
+
+.card {
+
+    border: none;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+
+    transition: 0.3s;
+
+}
+
+.card:hover {
+
+    transform: translateY(-10px);
+
+}
+
+.card img {
+
+    height: 250px;
+
+    object-fit: cover;
+
+}
+
+
+/* =========================================
+   FEATURE CARDS
+========================================= */
+
+.feature-card {
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    transition: 0.3s;
+
+}
+
+.feature-card:hover {
+
+    transform: scale(1.03);
+
+}
+
+.feature-card img {
+
+    width: 100%;
+
+    height: 250px;
+
+    object-fit: cover;
+
+}
+
+
+/* =========================================
+   SURVEY BANNER
+========================================= */
+
+.survey-banner {
+
+    background-image: url("../images/farm.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    height: 450px;
+
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    margin-top: 40px;
+
+}
+
+.survey-overlay {
+
+    background: rgba(0,0,0,0.6);
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    color: white;
+
+    padding: 20px;
+
+}
+
+.survey-overlay h2 {
+
+    font-size: 55px;
+
+    font-weight: bold;
+
+}
+
+
+/* =========================================
+   MAP DESIGN
+========================================= */
+
+#map {
+
+    width: 100%;
+
+    height: 850px;
+
+    border-radius: 30px;
+
+    border: 6px solid white;
+
+    box-shadow: 0px 0px 25px rgba(0,0,0,0.4);
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =========================================
+   MAP LABELS
+========================================= */
+
+.leaflet-container {
+
+    font-family: 'Segoe UI', sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+}
+
+
+/* =========================================
+   SEARCH BAR
+========================================= */
+
+.leaflet-control-geocoder {
+
+    border-radius: 20px !important;
+
+    overflow: hidden;
+
+    margin-top: 15px !important;
+
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+
+    border: none !important;
+
+}
+
+.leaflet-control-geocoder input {
+
+    padding: 12px !important;
+
+    font-size: 15px !important;
+
+    border: none !important;
+
+}
+
+.leaflet-control-geocoder-icon {
+
+    margin-top: 8px !important;
+
+}
+
+
+/* =========================================
+   LEAFLET DRAW TOOLBAR FIX
+========================================= */
+
+.leaflet-draw-toolbar a {
+
+    background-color: white !important;
+
+    background-image: url("https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/images/spritesheet.png") !important;
+
+    background-repeat: no-repeat !important;
+
+    background-size: 300px 30px !important;
+
+    width: 32px !important;
+
+    height: 32px !important;
+
+    border-radius: 12px !important;
+
+    border: 2px solid white !important;
+
+    box-shadow: 0px 0px 12px rgba(0,0,0,0.4);
+
+}
+
+
+/* Retina Display Fix */
+
+.leaflet-retina .leaflet-draw-toolbar a {
+
+    background-image: url("https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/images/spritesheet-2x.png") !important;
+
+    background-size: 300px 30px !important;
+
+}
+
+
+/* Hover Effect */
+
+.leaflet-draw-toolbar a:hover {
+
+    transform: scale(1.08);
+
+}
+
+
+/* Toolbar Container */
+
+.leaflet-draw-toolbar {
+
+    margin-top: 10px !important;
+
+}
+
+
+/* Zoom Buttons */
+
+.leaflet-control-zoom a {
+
+    background-color: white !important;
+
+    color: black !important;
+
+    border-radius: 12px !important;
+
+    font-size: 18px !important;
+
+    font-weight: bold;
+
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+
+}
+
+
+/* =========================================
+   POPUPS
+========================================= */
+
+.leaflet-popup-content-wrapper {
+
+    border-radius: 20px;
+
+    font-size: 15px;
+
+    font-family: Arial, sans-serif;
+
+}
+
+.leaflet-popup-tip {
+
+    background: white;
+
+}
+
+
+/* =========================================
+   SURVEY LABELS
+========================================= */
+
+.custom-survey-marker {
+
+    text-align: center;
+
+}
+
+.survey-label {
+
+    text-align: center;
+
+    font-weight: bold;
+
+    color: white;
+
+}
+
+
+/* =========================================
+   GPS EFFECT
+========================================= */
+
+.leaflet-interactive {
+
+    transition: 0.3s;
+
+}
+
+.leaflet-interactive:hover {
+
+    filter: brightness(1.2);
+
+}
+
+
+/* =========================================
+   FORMS
+========================================= */
+
+form {
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 30px;
+
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+
+}
+
+
+/* =========================================
+   INPUTS
+========================================= */
+
+input,
+textarea {
+
+    border-radius: 15px !important;
+
+    border: 1px solid #ddd !important;
+
+    padding: 12px !important;
+
+    font-size: 15px;
+
+}
+
+textarea {
+
+    resize: none;
+
+}
+
+
+/* =========================================
+   DASHBOARD
+========================================= */
+
+.dashboard-card {
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 25px;
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+
+}
+
+.dashboard-card h1 {
+
+    font-size: 55px;
+
+    font-weight: bold;
+
+}
+
+
+/* =========================================
+   PROFILE CARD
+========================================= */
+
+.profile-card {
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 30px;
+
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+
+}
+
+
+/* =========================================
+   LOGIN + REGISTER
+========================================= */
+
+.login-card,
+.register-card {
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 30px;
+
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+
+}
+
+
+/* =========================================
+   TABLES
+========================================= */
+
+.table {
+
+    background: white;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+}
+
+.history-table {
+
+    background: white;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================
+   IMAGE GALLERY
+========================================= */
+
+.gallery-img {
+
+    width: 100%;
+
+    height: 320px;
+
+    object-fit: cover;
+
+    border-radius: 25px;
+
+    transition: 0.3s;
+
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+
+}
+
+.gallery-img:hover {
+
+    transform: scale(1.04);
+
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+
+    background: #111;
+
+    color: white;
+
+    padding: 40px;
+
+    text-align: center;
+
+    margin-top: 50px;
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width:768px) {
+
+    .overlay h1 {
+
+        font-size: 38px;
+
+    }
+
+    .overlay p {
+
+        font-size: 16px;
+
+    }
+
+    #map {
+
+        height: 600px;
+
+    }
+
+    .survey-overlay h2 {
+
+        font-size: 35px;
+
+    }
+
+}
